@@ -8,7 +8,6 @@ function App() {
     <div>
       <Provider store={store}>
         <AppRouter />
-
       </Provider>
     </div>
   );
