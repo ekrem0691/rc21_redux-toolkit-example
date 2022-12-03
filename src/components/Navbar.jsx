@@ -8,11 +8,13 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const user = true;
+  const user = false;
 
-  const handleLogout ()=>{
-    navigate("login")
-  }
+  const handleLogout = () => {
+    //! clear user data
+    navigate("login");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="secondary">
@@ -27,11 +29,15 @@ export default function Navbar() {
           </Typography>
           {user ? (
             <>
-              <Button color="inherit" onClick={handleLogout} >Logout</Button>
+              <Button color="inherit" onClick={handleLogout}>
+                Logout
+              </Button>
             </>
           ) : (
             <>
-              <Button color="inherit" onClick={()=>navigate("/")} >Login</Button>
+              <Button color="inherit" onClick={() => navigate("/")}>
+                Login
+              </Button>
             </>
           )}
         </Toolbar>
