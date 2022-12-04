@@ -12,6 +12,9 @@ export default function Navbar() {
 
   const handleLogout = () => {
     //! clear user data
+
+    
+
     navigate("login");
   };
 
