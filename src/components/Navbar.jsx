@@ -21,7 +21,7 @@ export default function Navbar() {
     
     //! clear user data
 
-    dispatch(clearUser)
+    dispatch(clearUser())
     navigate("login");
   };
 
