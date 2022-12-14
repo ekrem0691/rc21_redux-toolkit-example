@@ -48,6 +48,11 @@ const newsSlice = createSlice({
   },
 });
 
+
+
+export default newsSlice.reducer;
+
+
 // import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import axios from 'axios';
 
