@@ -1,8 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-
-
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   newsList: [],
@@ -10,40 +7,46 @@ const initialState = {
 };
 
 
+// //? State'lerin API gibi async kaynaklardan gelen verilere gore guncellenmesi gerekebilir.
+// //? Ancak boyle bir durumda async islem tamamlandiktan sonra state guncellenmelidir.
+// //? Gonderilen api istegi ile dogrudan state guncellememelidir.
+// //? Islemin tamamlanmasi ile gelen veriye gore state'in guncellenemsini saglamak
+// //? adina bir arabirim kullanilmaktadir.
+// //? Bu arabirim middleware denilir.Redux-Toolkit, default olarak Thunk kullanmaktadir.
+// //! Thunk'ın amaci reducers'a islenmis sonuclari gondermeden once gecikmeli asenkron ismlerinin yurutulmesini saglamaktir.
+
+
+
+const API_KEY = '02d142c50d8b4247b974b25323435174';
+
+
+export const getNews = createAsyncThunk(
+   //! action type ismi
+  "news/getNews",
+
+  //   //! async callback fun.
+  async() => {
+  const url = `https://newsapi.org/v2/top-headlines?country=tr&apiKey=${API_KEY}`;
+
+  try {
+    
+    const {data} = await axios(url);
+    console.log(data)
+    return data.articles;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers:{
+  reducers: {
     clearNewsList: (state) => {
-      state.newsList = []
-    }
-  }
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      state.newsList = [];
+    },
+  },
+});
 
 // import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import axios from 'axios';
