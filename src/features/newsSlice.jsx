@@ -49,7 +49,7 @@ const newsSlice = createSlice({
 });
 
 
-
+export const { clearNewsList } = newsSlice.actions;
 export default newsSlice.reducer;
 
 
