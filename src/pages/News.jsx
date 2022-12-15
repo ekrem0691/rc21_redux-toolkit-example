@@ -12,14 +12,26 @@ import { useEffect } from 'react';
 
 const News = () => {
   const dispatch = useDispatch();
-  const { newsList, loading } = useSelector((state) => state.news);
+  const {newsList, loading} = useSelector(state=> state.news );
+  
 
-  useEffect(() => {
-    dispatch(getNews());
-    return () => {
-      dispatch(clearNewsList());
-    };
-  }, [dispatch]);
+
+
+
+
+
+
+
+
+
+  // const { newsList, loading } = useSelector((state) => state.news);
+
+  // useEffect(() => {
+  //   dispatch(getNews());
+  //   return () => {
+  //     dispatch(clearNewsList());
+  //   };
+  // }, [dispatch]);
 
   return (
     <>
