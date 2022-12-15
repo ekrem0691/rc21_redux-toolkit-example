@@ -45,6 +45,19 @@ const newsSlice = createSlice({
     clearNewsList: (state) => {
       state.newsList = [];
     },
+    extraReducer:{
+      [getNews.pending] :  (state, action) =>{
+        state.loading = true;
+      },
+      [getNews.fulfilled] :  (state, {payload}) =>{
+        state.loading = false;
+        state.newsList = payload;
+      },
+      [getNews.rejected] :  (state, {payload}) =>{
+        state.loading = false;
+      },
+
+    }
   },
 });
 
