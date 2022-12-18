@@ -19,7 +19,7 @@ const News = () => {
 
     return () => dispatch(clearNewsList());
   }, [dispatch]);
-
+//completed project
   return (
     <>
       {loading && (
