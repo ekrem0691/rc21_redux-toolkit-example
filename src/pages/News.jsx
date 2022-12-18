@@ -15,6 +15,12 @@ const News = () => {
   const {newsList, loading} = useSelector(state=> state.news );
   
 
+  useEffect(() => {
+    dispatch(getNews());
+  
+  
+  }, [])
+  
 
 
 
