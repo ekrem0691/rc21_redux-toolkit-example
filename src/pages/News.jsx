@@ -1,43 +1,24 @@
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { CardMedia } from '@mui/material';
-import loadingGif from '../assets/loading.gif';
-import { useDispatch, useSelector } from 'react-redux';
-import { clearNewsList, getNews } from '../features/newsSlice';
-import { useEffect } from 'react';
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { CardMedia } from "@mui/material";
+import loadingGif from "../assets/loading.gif";
+import { useDispatch, useSelector } from "react-redux";
+import { clearNewsList, getNews } from "../features/newsSlice";
+import { useEffect } from "react";
 
 const News = () => {
   const dispatch = useDispatch();
-  const {newsList, loading} = useSelector(state=> state.news );
-  
+  const { newsList, loading } = useSelector((state) => state.news);
 
   useEffect(() => {
     dispatch(getNews());
-  
-  
-  }, [])
-  
 
-
-
-
-
-
-
-
-
-  // const { newsList, loading } = useSelector((state) => state.news);
-
-  // useEffect(() => {
-  //   dispatch(getNews());
-  //   return () => {
-  //     dispatch(clearNewsList());
-  //   };
-  // }, [dispatch]);
+    return () => dispatch(clearNewsList());
+  }, [dispatch]);
 
   return (
     <>
@@ -53,7 +34,7 @@ const News = () => {
       )}
       {!loading && (
         <Box
-          xs={{ d: 'flex' }}
+          xs={{ d: "flex" }}
           display="flex"
           alignItems="center"
           justifyContent="space-evenly"

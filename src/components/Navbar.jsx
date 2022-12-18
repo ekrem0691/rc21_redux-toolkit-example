@@ -15,7 +15,7 @@ export default function Navbar() {
   // const user = useSelector((state) => state.auth.user ) 
   const {user} = useSelector((state) => state.auth ) 
   const dispatch = useDispatch(clearUser())
-  console.log(user);
+
 
   const handleLogout = () => {
     
